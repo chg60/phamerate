@@ -3,8 +3,9 @@ to make running multiple processes easy. Load balancing is left to
 the caller."""
 
 import multiprocessing
+import os
 
-CPUS = multiprocessing.cpu_count()
+CPUS = len(os.sched_getaffinity(0))
 
 
 def show_progress(current, end, width=50):
